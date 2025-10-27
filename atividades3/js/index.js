@@ -4,6 +4,8 @@ const totalitens = document.getElementById("total-itens")
 const itemImportante = document.getElementsByClassName("item-importante paragrafo-geral")
 const secao01 = document.getElementById("secao-1")
 const cartao = document.getElementsByClassName("cartao")
+const btnAdicionar = document.getElementById("btn-adicionar")
+const bordaAzul = document.getElementsByClassName("borda-azul")
 
 // ### Exercício 1: Estilização em Massa
 // Selecione todos os elementos que possuem a classe `paragrafo-geral` e altere a cor do texto de todos eles para azul (blue).
@@ -36,10 +38,19 @@ for (elemento of secao01 && paragrafoGeral) {
 
 // ### Exercício 6: Adicionando Eventos a Múltiplos Elementos
 // Encontre todos os elementos com a classe `cartao`. Adicione um evento de `click` a cada um deles que exiba um `alert("Cartão clicado!")`.
+
+// ### Exercício 10: Adicionando e Removendo Classes
+// Adicione eventos `mouseover` e `mouseout` aos elementos com a classe `cartao` para adicionar/remover a classe `borda-azul`.
 for (click of cartao) {
     click.addEventListener("click", function () {
         alert("Cartão clicado!")
     })
+    click.addEventListener("mouseover", () => {
+        click.classList.add("borda-azul")
+    });
+    click.addEventListener("mouseout", () => {
+        click.classList.remove("borda-azul")
+    });
 }
 
 // ### Exercício 7: Lendo Atributos de Dados
@@ -51,11 +62,16 @@ for(cart of cartao){
 // ### Exercício 8: A Natureza "Viva" da HTMLCollection
 // Crie uma variável armazenando a coleção dos elementos com a classe `cartao`. Imprima o tamanho no console. Depois, ao clicar no botão `btn-adicionar`, adicione um novo cartão e imprima novamente o tamanho da coleção.
 console.log(cartao.length)
-const textnode = document.createElement("div");
-node.appendChild(textnode);
+btnAdicionar.addEventListener("click", function(){
+    const divCartao = document.createElement("div");
+    divCartao.className = "cartao"
+    divCartao.textContent = "Produto"
+    document.getElementById("container-cartoes").appendChild(divCartao);
+})
 
 // ### Exercício 9: Alterando a Estrutura Interna (`innerHTML`)
 // Selecione todos os elementos com a classe `item-lista` e transforme o texto interno em `<em>texto</em>`.
+for (elemento of itemLista)
+    elemento.innerHTML = "<em>texto</em>"
 
-// ### Exercício 10: Adicionando e Removendo Classes
-// Adicione eventos `mouseover` e `mouseout` aos elementos com a classe `cartao` para adicionar/remover a classe `borda-azul`.
+
